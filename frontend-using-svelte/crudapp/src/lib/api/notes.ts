@@ -7,15 +7,13 @@ export async function getAllNotes(): Promise<Note[]> {
 }
 
 // get note by user id
-export async function getNoteByUserId(userid: number):Promise<Note[]> {
-    return apiFetch<Note[]>(`/users/${userid}`);
+export async function getNoteByUserId():Promise<Note[]> {
+    return apiFetch<Note[]>(`/users/user}`);
 }
 
 // create a note
-export async function createNote(userId: number,
-    note: Omit<Note, 'id' | 'createdAt' | 'user'>
-){
-  return apiFetch<Note>(`/notes/addnote/${userId}`, {
+export async function createNote(note: Omit<Note, 'id' | 'createdAt' | 'user'>){
+  return apiFetch<Note>('/notes/addnote/', {
     method: 'POST',
     body: JSON.stringify(note)
   })
