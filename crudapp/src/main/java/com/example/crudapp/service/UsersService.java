@@ -5,6 +5,10 @@ import java.util.Optional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.example.crudapp.model.Note;
 import com.example.crudapp.model.Users;
 import com.example.crudapp.repo.UsersRepo;
 
@@ -65,5 +69,6 @@ public class UsersService {
         Users savedUser = usersRepo.save(user);
         return ResponseEntity.ok(savedUser);
     }
+
 }
 

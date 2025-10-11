@@ -36,7 +36,7 @@ public class UsersController {
         return usersService.getUserById(userId);
     }
 
-    @PostMapping("/add")
+    @PostMapping("/adduser")
     public ResponseEntity<?> createUser(@RequestBody Users user){
         return usersService.creatUsers(user);
     }

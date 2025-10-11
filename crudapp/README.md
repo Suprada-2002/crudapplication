@@ -47,3 +47,20 @@ Dependencies:
 - Spring Boot Extension Pack - vmware
 - maven fo rjava
 - Thunder Client
+
+
+## TABLES
+1. Users
+2. Note
+
+## RELATIONSHIPS
+```
+  ┌────────────┐          1      *        ┌────────────┐
+  │   Users    │─────────────────────────>│   Note     │
+  └────────────┘                          └────────────┘
+  id (PK)                                 id (PK)
+  userName                                title
+  email                                   content
+  phoneNo                                 createdAt
+  notes (List<Note>) <------------------  user (ManyToOne)
+```
