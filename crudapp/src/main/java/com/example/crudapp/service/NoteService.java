@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.example.crudapp.model.Note;
@@ -33,16 +34,19 @@ public class NoteService {
         return ResponseEntity.ok(notes);
     }
 
-    public ResponseEntity<List<Note>>  getNoteByUserId(Long userId){
-        List<Note> notes = noteRepo.findByUserId(userId);
+    public ResponseEntity<List<Note>> getNoteByUserId(){
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        Users user = usersRepo.findByEmail(email).orElseThrow(() -> new RuntimeException("User not found"));
+        List<Note> notes = user.getNotes();
         if(notes.isEmpty()){
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
         return ResponseEntity.ok(notes);
     }
 
-    public ResponseEntity<Note> createNote(Note note, Long userId){
-        Optional<Users> user = usersRepo.findById(userId);
+    public ResponseEntity<Note> createNote(Note note){
+         String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        Optional<Users> user = usersRepo.findByEmail(email);
         if(user.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }

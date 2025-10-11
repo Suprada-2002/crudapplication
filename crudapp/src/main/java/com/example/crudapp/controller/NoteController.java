@@ -24,7 +24,7 @@ public class NoteController {
     private final NoteService noteService;
 
     public NoteController(NoteService noteService){
-        this.noteService = noteService;
+        this.noteService = noteService; 
     }
 
     // get all notes irrespective of user
@@ -34,14 +34,14 @@ public class NoteController {
     }
 
     // Get Notes for a user by id
-   @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Note>> getNoteByUserId(@PathVariable Long userId){
-        return noteService.getNoteByUserId(userId);
+   @GetMapping("/user")
+    public ResponseEntity<List<Note>> getNoteByUserId(){
+        return noteService.getNoteByUserId();
     }
 
-    @PostMapping("/addnote/{userId}")
-    public ResponseEntity<Note> createNote(@RequestBody Note note, @PathVariable Long userId){
-        return noteService.createNote(note, userId);
+    @PostMapping("/addnote")
+    public ResponseEntity<Note> createNote(@RequestBody Note note){
+        return noteService.createNote(note);
     }
 
     @DeleteMapping("/{noteId}")

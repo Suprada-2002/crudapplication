@@ -3,6 +3,7 @@ package com.example.crudapp.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
@@ -27,6 +28,9 @@ public class Users {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Note> notes = new ArrayList<>();
+
+    @JsonIgnore
+    private String password;
 
     public Long getId() {
         return id;
@@ -57,6 +61,12 @@ public class Users {
     }
     public void setNotes(List<Note> notes) {
         this.notes = notes;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
     } 
 
 }

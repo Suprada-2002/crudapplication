@@ -64,3 +64,13 @@ Dependencies:
   phoneNo                                 createdAt
   notes (List<Note>) <------------------  user (ManyToOne)
 ```
+
+## DTO
+- DTO = Data Transfer Object
+- It’s a simple plain Java object used to transfer data between layers (e.g., from frontend → backend or backend → frontend).
+- It usually does not contain business logic, only fields and getters/setters.
+- It helps decouple your entity from the API, so you don’t expose sensitive fields (like passwords or internal IDs) directly.
+```
+AuthRequest → represents the login request from the client (contains email and password).
+AuthResponse → represents the login response sent back to the client (contains JWT token).
+```
