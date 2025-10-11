@@ -21,3 +21,7 @@ add in vite.config.js:
 in layout.css
     @import "tailwindcss";
 ```
+
+## Files:
+1. client.ts : This ensures every call is type-safe (Promise<T>), and you get clear error objects for easy handling in your UI.
+2. 
