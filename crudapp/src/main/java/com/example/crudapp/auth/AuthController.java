@@ -17,7 +17,7 @@ import com.example.crudapp.repo.UsersRepo;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:5173") 
 public class AuthController {
 
     private final UsersRepo usersRepo;

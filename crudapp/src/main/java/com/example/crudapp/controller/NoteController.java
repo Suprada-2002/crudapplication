@@ -18,7 +18,7 @@ import com.example.crudapp.service.NoteService;
 
 @Controller
 @RequestMapping("/api/notes")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:5173") 
 public class NoteController {
 
     private final NoteService noteService;

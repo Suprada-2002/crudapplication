@@ -13,7 +13,7 @@ export async function getNoteByUserId():Promise<Note[]> {
 
 // create a note
 export async function createNote(note: Omit<Note, 'id' | 'createdAt' | 'user'>){
-  return apiFetch<Note>('/notes/addnote/', {
+  return apiFetch<Note>('/notes/addnote', {
     method: 'POST',
     body: JSON.stringify(note)
   })

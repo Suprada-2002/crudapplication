@@ -17,7 +17,7 @@ import com.example.crudapp.service.UsersService;
 
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:5173") 
 public class UsersController {
 
     private final UsersService usersService;
