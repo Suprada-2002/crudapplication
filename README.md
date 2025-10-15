@@ -3,7 +3,12 @@
 
 
 ## Tech Stack
-### Front End : Svelte Kit
+### Front End 
+```
+1. Svelte Kit : Framework
+2. Bun : package manager
+3. Tailwind CSS : for styling
+```
 ### Back End
 ```
 1. SpringBoot
