@@ -4,3 +4,9 @@
 
 ## Tech Stack
 ### Front End : Svelte Kit
+### Back End
+```
+1. SpringBoot
+2. Maven : Package Manager
+3. JPA, Hibernate : ORM
+```
